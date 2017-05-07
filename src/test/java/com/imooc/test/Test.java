@@ -17,6 +17,11 @@ public class Test {
 			System.out.println(message.getId() + " " + message.getCommand()
 					+ " " + message.getContent());
 		}
+		Message message=new Message();
+		message.setId(5);
+		message.setCommand("cxl55");
+		message.setContent("200M");
+		dao.insert(message);
 	}
 
 }

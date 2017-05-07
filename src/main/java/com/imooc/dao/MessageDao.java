@@ -29,4 +29,21 @@ public class MessageDao {
 		}
 		return messageList;
 	}
+	//写入数据
+	public void insert(Message message){
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = DBUtil.getSqlSeesion();
+			IMessageDao imessageDao=sqlSession.getMapper(IMessageDao.class);
+			imessageDao.insertMessage(message);
+			sqlSession.commit();
+		} catch (IOException e) {
+			sqlSession.rollback();
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
 }
