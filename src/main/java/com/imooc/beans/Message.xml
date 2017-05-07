@@ -24,5 +24,8 @@
 	<select id="findById" parameterType="com.imooc.beans.Message" resultMap="MessageResult">
 		SELECT * FROM MESSAGE WHERE ID>#{id}
 	</select>
+	<insert id="insertMessage" parameterType="com.imooc.beans.Message">
+		INSERT INTO MESSAGE VALUES(#{id},#{command},#{content})
+	</insert>
 
 </mapper>
