@@ -10,7 +10,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Message">
+<mapper namespace="com.imooc.dao.IMessageDao">
 
 	<resultMap type="com.imooc.beans.Message" id="MessageResult">
 		<id column="id" jdbcType="INTEGER" property="id" />
@@ -20,6 +20,9 @@
 
 	<select id="findAll" resultMap="MessageResult">
 		SELECT * FROM MESSAGE
+	</select>
+	<select id="findById" parameterType="com.imooc.beans.Message" resultMap="MessageResult">
+		SELECT * FROM MESSAGE WHERE ID>#{id}
 	</select>
 
 </mapper>
