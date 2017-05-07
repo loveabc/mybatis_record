@@ -16,9 +16,11 @@ public class MessageDao {
 		List<Message> messageList = null;
 		try {
 			sqlSession = DBUtil.getSqlSeesion();
-			messageList = sqlSession.selectList("Message.findAll");
+			IMessageDao imessageDao=sqlSession.getMapper(IMessageDao.class);
+			Message message=new Message();
+			message.setId(2);
+			messageList=imessageDao.findById(message);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			if (sqlSession != null) {
