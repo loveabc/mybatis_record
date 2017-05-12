@@ -6,6 +6,6 @@ import com.imooc.beans.Message;
 
 public interface IMessageDao {
 
-	public List<Message> findById(Message message);
+	public List<Message> get(Message message);
 	public void insertMessage(Message message);
 }
