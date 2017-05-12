@@ -19,7 +19,7 @@ public class MessageDao {
 			IMessageDao imessageDao=sqlSession.getMapper(IMessageDao.class);
 			Message message=new Message();
 			message.setId(2);
-			messageList=imessageDao.findById(message);
+			messageList=imessageDao.get(message);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
